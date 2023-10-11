@@ -12,6 +12,12 @@ export const formatTimeToUTC = (timeInMinutes) => {
     .padStart(2, "0")}`;
 };
 
+export const formatTimeToMin = (time) => {
+  if (!time) return;
+  const [hours, min] = time?.split(":");
+  return +hours * 60 + +min;
+};
+
 const App = () => {
   const [userPreferences, setUserPreferences] = useState({
     date: new Date().toISOString().split("T")[0],
@@ -23,7 +29,7 @@ const App = () => {
 
   return (
     <main className="wrapper">
-      <div className="max-w-2xl bg-amber-600 rounded-3xl">
+      <div className="max-w-lg bg-amber-600 rounded-3xl">
         <div className="bg-white drop-shadow-2xl rounded-3xl p-4 m-4">
           <h1 className="font-medium text-2xl text-center">
             Movie Magic Scheduler
@@ -31,7 +37,10 @@ const App = () => {
           <Divider />
           <MovieSessions date={userPreferences.date} />
           <Divider />
-          <UserTimeForm setUserPreferences={handleUserPreferences} />
+          <UserTimeForm
+            userPreferences={userPreferences}
+            setUserPreferences={handleUserPreferences}
+          />
           <Divider />
           <MovieSuggest userPreferences={userPreferences} />
         </div>
