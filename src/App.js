@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <main className="wrapper">
-      <div className="max-w-lg bg-amber-600 rounded-3xl">
+      <div className="max-w-lg bg-amber-600 dark:bg-amber-600 rounded-3xl">
         <div className="bg-white drop-shadow-2xl rounded-3xl p-4 m-4">
           <h1 className="font-medium text-2xl text-center">
             Movie Magic Scheduler
