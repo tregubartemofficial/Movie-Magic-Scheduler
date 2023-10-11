@@ -27,7 +27,7 @@ code {
 }
 
 .label {
-  @apply flex flex-col items-stretch mt-2;
+  @apply flex flex-col items-stretch mt-2 mx-2;
 }
 
 .input {
@@ -39,11 +39,11 @@ code {
 }
 
 .left-dot {
-  @apply absolute rounded-full w-5 h-5 dark:bg-amber-600 bg-amber-600 -mt-2 -left-2;
+  @apply absolute rounded-full w-5 h-5 dark:bg-amber-600 bg-amber-600 -mt-2 left-0 -ml-2;
 }
 
 .right-dot {
-  @apply absolute rounded-full w-5 h-5 dark:bg-amber-600 bg-amber-600 -mt-2 -right-2;
+  @apply absolute rounded-full w-5 h-5 dark:bg-amber-600 bg-amber-600 -mt-2 right-0 -mr-2;
 }
 
 .ticket-divider {
