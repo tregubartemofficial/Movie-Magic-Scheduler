@@ -422,4 +422,10 @@ export const movies = [
     movieEnds: [807, 927],
     rating: 5,
   },
+  {
+    title: "Trustee",
+    dayOfWeek: 7,
+    duration: Infinity,
+    rating: 100,
+  },
 ];
