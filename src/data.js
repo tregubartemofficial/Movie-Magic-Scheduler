@@ -288,8 +288,8 @@ export const movies = [
     duration: 100,
     loadPercentage: 29,
     ticketPrice: 7.18,
-    movieStarts: [1140, 1250, 1360],
-    movieEnds: [1240, 1350, 1460],
+    movieStarts: [1110, 1220, 1330],
+    movieEnds: [1210, 1320, 1430],
     rating: 5,
   },
   {

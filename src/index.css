@@ -21,6 +21,10 @@ code {
     monospace;
 }
 
+.title-orange {
+  @apply text-lg font-semibold text-orange-600
+}
+
 .wrapper {
   @apply min-h-screen bg-center bg-cover flex items-center justify-center;
 }

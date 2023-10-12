@@ -12,6 +12,7 @@ const InputTime = ({ userPreferences, setUserPreferences, type }) => {
         formatTimeToMin(userPreferences.endTime)
     ) {
       setTimeError(true);
+      setTime('');
       return;
     }
     if (
@@ -20,6 +21,7 @@ const InputTime = ({ userPreferences, setUserPreferences, type }) => {
         formatTimeToMin(userPreferences.startTime)
     ) {
       setTimeError(true);
+      setTime("");
       return;
     }
     setTimeError(false);
