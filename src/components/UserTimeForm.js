@@ -34,10 +34,10 @@ const UserTimeForm = ({ userPreferences, setUserPreferences }) => {
         setUserPreferences={setUserPreferences}
         type="endTime"
       />
-      <label htmlFor="prefer-unfilled-cinema" className="label">
+      <label htmlFor="prefer-unfilled-cinema" className="cursor-pointer">
         <input
           id="prefer-unfilled-cinema"
-          className="m-2 w-4 h-4"
+          className="m-2 w-4 h-4 cursor-pointer"
           type="checkbox"
           checked={preferUnfilledCinema}
           onChange={() => {

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -25,16 +29,12 @@ code {
   @apply flex items-center justify-center;
 }
 
-.btn-primary {
-  @apply py-2 px-4 bg-amber-600 text-white font-semibold rounded-lg shadow-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all;
-}
-
 .label {
-  @apply mt-2;
+  @apply flex flex-col items-stretch mt-2 mx-2;
 }
 
 .input {
-  @apply bg-white border-amber-200 border-b-2 w-full py-1 hover:border-amber-300 focus:outline-none transition-all;
+  @apply bg-white border-amber-200 min-w-full border-b-2 py-1 transition-all hover:border-amber-300 focus:outline-none;
 }
 
 .input-error {
@@ -42,11 +42,13 @@ code {
 }
 
 .left-dot {
-  @apply absolute rounded-full w-5 h-5 bg-amber-600 -mt-2 -left-2;
+  @apply absolute rounded-full w-5 h-5 dark:bg-amber-600 bg-amber-600 -mt-2 left-0;
+  margin-left: -8px;
 }
 
 .right-dot {
-  @apply absolute rounded-full w-5 h-5 bg-amber-600 -mt-2 -right-2;
+  @apply absolute rounded-full w-5 h-5 dark:bg-amber-600 bg-amber-600 -mt-2 right-0;
+  margin-right: -8px;
 }
 
 .ticket-divider {
