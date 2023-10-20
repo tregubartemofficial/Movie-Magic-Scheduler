@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import InputTime from "../ui/InputTime";
+import InputTime from "../../ui/InputTime";
 
 const UserTimeForm = ({ userPreferences, setUserPreferences }) => {
   const [preferUnfilledCinema, setPreferUnfilledCinema] = useState(false);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   return (
-    <form className="flex flex-col items-center mb-5">
+    <form className="flex-center col">
       <label htmlFor="date" className="label">
         Date:
         <input

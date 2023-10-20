@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { formatTimeToMin } from "../App";
+import "../styles/Input.css";
 
 const InputTime = ({ userPreferences, setUserPreferences, type }) => {
   const [time, setTime] = useState("");

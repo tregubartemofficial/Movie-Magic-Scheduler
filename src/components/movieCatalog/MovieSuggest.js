@@ -1,6 +1,6 @@
 import React from "react";
-import { movies } from "../data";
-import { formatTimeToMin, formatTimeToUTC } from "../App";
+import { movies } from "../../data";
+import { formatTimeToMin, formatTimeToUTC } from "../../App";
 
 const MovieSuggest = ({ userPreferences }) => {
   const { date, startTime, endTime, preferUnfilledCinema } = userPreferences;
@@ -40,7 +40,7 @@ const MovieSuggest = ({ userPreferences }) => {
   const movieTimeIndex = filteredMovies[0]?.timeIndex;
 
   return (
-    <section className="flex flex-col items-center content-center p-4">
+    <section className="flex-center col">
       {!(startTime || endTime) && (
         <h2 className="title-orange">Please enter your preferred time</h2>
       )}
