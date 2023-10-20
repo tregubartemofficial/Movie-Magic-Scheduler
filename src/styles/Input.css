@@ -1,0 +1,34 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.input {
+  background-color: #fff;
+  border-color: var(--input-border-color);
+  min-width: 100%;
+  border-bottom-width: 2px;
+  border-radius: var(--border-radius);
+  padding: 0.25rem 0;
+  transition: all 150ms ease-in-out;
+}
+
+.input-catalog {
+  padding: 0.5rem 0;
+}
+
+.input:hover, .input:focus {
+  outline: none;
+  border-color: var(--input-border-hover-color);
+  box-shadow: 0 1px 0 0 var(--input-border-hover-color);
+}
+
+.input-error {
+  border-color: var(--error-color);
+}
+
+.input-error:focus {
+  border-color: var(--error-color);
+}

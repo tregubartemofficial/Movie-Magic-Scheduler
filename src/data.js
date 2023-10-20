@@ -1,6 +1,8 @@
 export const movies = [
   {
     title: "The Shawshank Redemption",
+    description:
+      "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
     dayOfWeek: 0,
     duration: "142",
     loadPercentage: 100,
@@ -8,9 +10,13 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [810, 930, 1050],
     rating: 5,
+    genre: "Drama",
+    ageLimit: 17,
   },
   {
     title: "The Dark Knight",
+    description:
+      "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
     dayOfWeek: 0,
     duration: "150",
     loadPercentage: 60,
@@ -18,9 +24,13 @@ export const movies = [
     movieStarts: [30, 1230],
     movieEnds: [180, 1380],
     rating: 4,
+    genre: "Action",
+    ageLimit: 13,
   },
   {
     title: "The Godfather Part II",
+    description:
+      "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
     dayOfWeek: 0,
     duration: "105",
     loadPercentage: 90,
@@ -28,9 +38,13 @@ export const movies = [
     movieStarts: [840, 960],
     movieEnds: [945, 1050],
     rating: 5,
+    genre: "Crime",
+    ageLimit: 17,
   },
   {
     title: "12 Angry Men",
+    description:
+      "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
     dayOfWeek: 0,
     duration: "120",
     loadPercentage: 50,
@@ -38,9 +52,13 @@ export const movies = [
     movieStarts: [1050, 1170, 1290],
     movieEnds: [1170, 1290, 1410],
     rating: 3,
+    genre: "Drama",
+    ageLimit: 13,
   },
   {
     title: "Schindler's List",
+    description:
+      "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
     dayOfWeek: 0,
     duration: "100",
     loadPercentage: 70,
@@ -48,9 +66,13 @@ export const movies = [
     movieStarts: [660, 780, 900],
     movieEnds: [760, 880, 1000],
     rating: 4,
+    genre: "Drama",
+    ageLimit: 17,
   },
   {
     title: "The Lord of the Rings",
+    description:
+      "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
     dayOfWeek: 0,
     duration: "135",
     loadPercentage: 80,
@@ -58,9 +80,13 @@ export const movies = [
     movieStarts: [1115, 1260],
     movieEnds: [1250, 1395],
     rating: 5,
+    genre: "Fantasy",
+    ageLimit: 13,
   },
   {
     title: "Pulp Fiction",
+    description:
+      "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
     dayOfWeek: 1,
     duration: "95",
     loadPercentage: 60,
@@ -68,31 +94,41 @@ export const movies = [
     movieStarts: [780, 900, 1020],
     movieEnds: [875, 995, 1115],
     rating: 5,
+    genre: "Crime",
+    ageLimit: 17,
   },
   {
     title: "Fight Club",
+    description:
+      "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.",
     dayOfWeek: 1,
-
     duration: "125",
     loadPercentage: 90,
     ticketPrice: 10.99,
     movieStarts: [930, 1055, 1180],
     movieEnds: [1055, 1180, 1305],
     rating: 5,
+    genre: "Drama",
+    ageLimit: 17,
   },
   {
     title: "Inception",
+    description:
+      "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
     dayOfWeek: 1,
-
     duration: "110",
     loadPercentage: 50,
     ticketPrice: 12.99,
     movieStarts: [1140, 1250, 1360],
     movieEnds: [1250, 1360, 90],
     rating: 3,
+    genre: "Action",
+    ageLimit: 13,
   },
   {
     title: "The Matrix",
+    description:
+      "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
     dayOfWeek: 1,
 
     duration: "130",
@@ -101,9 +137,13 @@ export const movies = [
     movieStarts: [960, 1090, 1220],
     movieEnds: [1090, 1220, 1350],
     rating: 4,
+    genre: "Action",
+    ageLimit: 13,
   },
   {
     title: "Goodfellas",
+    description:
+      "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
     dayOfWeek: 1,
     duration: 125,
     loadPercentage: 33,
@@ -111,9 +151,13 @@ export const movies = [
     movieStarts: [540, 750],
     movieEnds: [665, 875],
     rating: 2,
+    genre: "Crime",
+    ageLimit: 17,
   },
   {
     title: "One Flew Over the Cuckoo's Nest",
+    description:
+      "A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.",
     dayOfWeek: 1,
     duration: 117,
     loadPercentage: 65,
@@ -121,9 +165,13 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [847, 967, 1087],
     rating: 5,
+    genre: "Drama",
+    ageLimit: 17,
   },
   {
     title: "Se7en",
+    description:
+      "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
     dayOfWeek: 2,
     duration: 128,
     loadPercentage: 84,
@@ -131,9 +179,13 @@ export const movies = [
     movieStarts: [780, 900, 1020],
     movieEnds: [908, 1028, 1148],
     rating: 3,
+    ageLimit: 17,
+    genre: "Crime",
   },
   {
     title: "It's a Wonderful Life",
+    description:
+      "An angel is sent from Heaven to help a desperately frustrated businessman by showing him what life would have been like if he had never existed.",
     dayOfWeek: 2,
     duration: 190,
     loadPercentage: 80,
@@ -141,9 +193,13 @@ export const movies = [
     movieStarts: [350, 1140],
     movieEnds: [540, 1330],
     rating: 2,
+    ageLimit: 13,
+    genre: "Drama",
   },
   {
     title: "Seven Samurai",
+    description:
+      "A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves.",
     dayOfWeek: 2,
     duration: 97,
     loadPercentage: 48,
@@ -151,9 +207,13 @@ export const movies = [
     movieStarts: [960, 1090, 1220],
     movieEnds: [1050, 1180, 1310],
     rating: 5,
+    ageLimit: 17,
+    genre: "Action",
   },
   {
     title: "Interstellar",
+    description:
+      "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
     dayOfWeek: 2,
     duration: 68,
     loadPercentage: 57,
@@ -161,9 +221,13 @@ export const movies = [
     movieStarts: [1250, 1360, 200],
     movieEnds: [1318, 1428, 268],
     rating: 4,
+    ageLimit: 13,
+    genre: "Sci-Fi",
   },
   {
     title: "The Silence of the Lambs",
+    description:
+      "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
     dayOfWeek: 2,
     duration: 64,
     loadPercentage: 5,
@@ -171,9 +235,13 @@ export const movies = [
     movieStarts: [1090, 1220, 1350],
     movieEnds: [1154, 1284, 1414],
     rating: 3,
+    ageLimit: 17,
+    genre: "Thriller",
   },
   {
     title: "Saving Private Ryan",
+    description:
+      "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
     dayOfWeek: 2,
     duration: 166,
     loadPercentage: 12,
@@ -181,9 +249,13 @@ export const movies = [
     movieStarts: [840, 1200],
     movieEnds: [1006, 1366],
     rating: 4,
+    ageLimit: 17,
+    genre: "War",
   },
   {
     title: "City of God",
+    description:
+      'In the poverty-stricken favelas of Rio de Janeiro in the 1970s, two young men choose different paths. Rocket is a budding photographer who documents the increasing drug-related violence of his neighborhood. José "Zé" Pequeno is an ambitious drug dealer who uses Rocket and his photos as a way to increase his fame as a turf war erupts with his rival, "Knockout Ned". The film was shot on location in Rio\'s poorest neighborhoods.',
     dayOfWeek: 3,
     duration: 98,
     loadPercentage: 29,
@@ -191,9 +263,13 @@ export const movies = [
     movieStarts: [960, 1090, 1220],
     movieEnds: [1058, 1188, 1318],
     rating: 5,
+    ageLimit: 17,
+    genre: "Drama",
   },
   {
     title: "The Green Mile",
+    description:
+      "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
     dayOfWeek: 3,
     duration: 83,
     loadPercentage: 80,
@@ -201,9 +277,13 @@ export const movies = [
     movieStarts: [1140, 1310],
     movieEnds: [1223, 1393],
     rating: 5,
+    ageLimit: 17,
+    genre: "Drama",
   },
   {
     title: "Star Wars: Episode IV - A New Hope",
+    description:
+      "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
     dayOfWeek: 3,
     duration: 120,
     loadPercentage: 92,
@@ -211,9 +291,13 @@ export const movies = [
     movieStarts: [540, 760, 1090],
     movieEnds: [660, 880, 1210],
     rating: 2,
+    ageLimit: 13,
+    genre: "Sci-Fi",
   },
   {
     title: "Terminator 2: Judgment Day",
+    description:
+      "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her teenage son, John Connor, from a more advanced and powerful cyborg.",
     dayOfWeek: 3,
     duration: 180,
     loadPercentage: 20,
@@ -221,9 +305,13 @@ export const movies = [
     movieStarts: [90, 1250],
     movieEnds: [270, 1430],
     rating: 3,
+    ageLimit: 17,
+    genre: "Action",
   },
   {
     title: "Back to the Future",
+    description:
+      "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown.",
     dayOfWeek: 3,
     duration: 180,
     loadPercentage: 90,
@@ -231,9 +319,13 @@ export const movies = [
     movieStarts: [1040, 1230],
     movieEnds: [1220, 1410],
     rating: 2,
+    genre: "Sci-Fi",
+    ageLimit: 12,
   },
   {
     title: "Spirited Away",
+    description:
+      "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
     dayOfWeek: 3,
     duration: 150,
     loadPercentage: 25,
@@ -241,9 +333,13 @@ export const movies = [
     movieStarts: [840, 1080],
     movieEnds: [990, 1230],
     rating: 2,
+    genre: "Animation",
+    ageLimit: 0,
   },
   {
     title: "The Pianist",
+    description:
+      "A Jewish pianist in Warsaw struggles to survive the destruction of the ghetto during World War II.",
     dayOfWeek: 4,
     duration: 110,
     loadPercentage: 1,
@@ -251,9 +347,13 @@ export const movies = [
     movieStarts: [1250],
     movieEnds: [1360],
     rating: 2,
+    genre: "Drama",
+    ageLimit: 16,
   },
   {
     title: "Psycho",
+    description:
+      "A Hitchcock thriller about embezzlement and a disturbing motel stay.",
     dayOfWeek: 4,
     duration: 170,
     loadPercentage: 32,
@@ -261,9 +361,13 @@ export const movies = [
     movieStarts: [1090, 1220],
     movieEnds: [1260, 1390],
     rating: 3,
+    genre: "Thriller",
+    ageLimit: 18,
   },
   {
     title: "Parasite",
+    description:
+      "A Korean dark comedy on class divisions and a wealthy family's infiltration.",
     dayOfWeek: 4,
     duration: 170,
     loadPercentage: 6,
@@ -271,9 +375,12 @@ export const movies = [
     movieStarts: [840, 960, 1080],
     movieEnds: [1010, 1130, 1250],
     rating: 5,
+    genre: "Comedy",
+    ageLimit: 16,
   },
   {
     title: "Gladiator",
+    description: "An epic with Russell Crowe seeking revenge in ancient Rome.",
     dayOfWeek: 4,
     duration: 147,
     loadPercentage: 11,
@@ -281,9 +388,13 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [867, 987, 1107],
     rating: 5,
+    genre: "Action",
+    ageLimit: 17,
   },
   {
     title: "The Lion King",
+    description:
+      "An animated musical film about a young lion who must regain his place as king after his uncle kills his father.",
     dayOfWeek: 4,
     duration: 100,
     loadPercentage: 29,
@@ -291,9 +402,13 @@ export const movies = [
     movieStarts: [1110, 1220, 1330],
     movieEnds: [1210, 1320, 1430],
     rating: 5,
+    genre: "Animation",
+    ageLimit: 6,
   },
   {
     title: "Léon: The Professional",
+    description:
+      "A hitman takes in a 12-year-old girl after her family is murdered and teaches her the trade.",
     dayOfWeek: 4,
     duration: 130,
     loadPercentage: 80,
@@ -301,49 +416,13 @@ export const movies = [
     movieStarts: [960, 1090, 1220],
     movieEnds: [1090, 1220, 1350],
     rating: 3,
-  },
-  {
-    title: "Oppenheimer",
-    dayOfWeek: 5,
-    duration: 147,
-    loadPercentage: 11,
-    ticketPrice: 2.18,
-    movieStarts: [720, 840, 960],
-    movieEnds: [867, 987, 1107],
-    rating: 4,
-  },
-  {
-    title: "Whiplash",
-    dayOfWeek: 5,
-    duration: 170,
-    loadPercentage: 90,
-    ticketPrice: 6.58,
-    movieStarts: [1140, 1250],
-    movieEnds: [1310, 1420],
-    rating: 4,
-  },
-  {
-    title: "Joker",
-    dayOfWeek: 5,
-    duration: 120,
-    loadPercentage: 11,
-    ticketPrice: 2.18,
-    movieStarts: [420, 690, 960],
-    movieEnds: [640, 820, 1080],
-    rating: 4,
-  },
-  {
-    title: "Casablanca",
-    dayOfWeek: 5,
-    duration: 102,
-    loadPercentage: 29,
-    ticketPrice: 7.18,
-    movieStarts: [720, 840, 960],
-    movieEnds: [822, 942, 1062],
-    rating: 3,
+    genre: "Drama",
+    ageLimit: 14,
   },
   {
     title: "The Intouchables",
+    description:
+      "A wealthy quadriplegic hires a young man from the projects to be his caregiver.",
     dayOfWeek: 5,
     duration: 112,
     loadPercentage: 80,
@@ -351,9 +430,13 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [832, 952, 1072],
     rating: 5,
+    ageLimit: 17,
+    genre: "Drama"
   },
   {
     title: "Apocalypse Now",
+    description:
+      "During the Vietnam War, Captain Willard is sent on a dangerous mission into Cambodia to assassinate a renegade colonel who has set himself up as a god among a local tribe.",
     dayOfWeek: 5,
     duration: 153,
     loadPercentage: 22,
@@ -361,9 +444,69 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [873, 993, 1113],
     rating: 2,
+    ageLimit: 17,
+    genre: "War"
+  },
+  {
+    title: "Oppenheimer",
+    description:
+      "The story of J. Robert Oppenheimer, the father of the atomic bomb.",
+    dayOfWeek: 5,
+    duration: 147,
+    loadPercentage: 11,
+    ticketPrice: 2.18,
+    movieStarts: [720, 840, 960],
+    movieEnds: [867, 987, 1107],
+    rating: 4,
+    genre: "Drama",
+    ageLimit: 13,
+  },
+  {
+    title: "Whiplash",
+    description:
+      "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.",
+    dayOfWeek: 5,
+    duration: 170,
+    loadPercentage: 90,
+    ticketPrice: 6.58,
+    movieStarts: [1140, 1250],
+    movieEnds: [1310, 1420],
+    rating: 4,
+    genre: "Drama",
+    ageLimit: 17,
+  },
+  {
+    title: "Joker",
+    description:
+      "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
+    dayOfWeek: 5,
+    duration: 120,
+    loadPercentage: 11,
+    ticketPrice: 2.18,
+    movieStarts: [420, 690, 960],
+    movieEnds: [640, 820, 1080],
+    rating: 4,
+    genre: "Thriller",
+    ageLimit: 17,
+  },
+  {
+    title: "Casablanca",
+    description:
+      "A cynical American expatriate struggles to decide whether or not he should help his former lover and her fugitive husband escape French Morocco.",
+    dayOfWeek: 5,
+    duration: 102,
+    loadPercentage: 29,
+    ticketPrice: 7.18,
+    movieStarts: [720, 840, 960],
+    movieEnds: [822, 942, 1062],
+    rating: 3,
+    genre: "Romance",
+    ageLimit: 13,
   },
   {
     title: "Modern Times",
+    description:
+      "The Tramp struggles to live in modern industrial society with the help of a young homeless woman.",
     dayOfWeek: 6,
     duration: 95,
     loadPercentage: 90,
@@ -371,9 +514,13 @@ export const movies = [
     movieStarts: [420, 540, 660],
     movieEnds: [515, 635, 755],
     rating: 5,
+    genre: "Romance",
+    ageLimit: 13,
   },
   {
     title: "Cinema Paradiso",
+    description:
+      "A filmmaker recalls his childhood, when he fell in love with the movies at his village's theater and formed a deep friendship with the theater's projectionist.",
     dayOfWeek: 6,
     duration: 124,
     loadPercentage: 11,
@@ -381,9 +528,13 @@ export const movies = [
     movieStarts: [820, 1060],
     movieEnds: [944, 1184],
     rating: 4,
+    genre: "Drama",
+    ageLimit: 12,
   },
   {
     title: "Once Upon a Time in the West",
+    description:
+      "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.",
     dayOfWeek: 6,
     duration: 165,
     loadPercentage: 29,
@@ -391,9 +542,13 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [885, 1005, 1125],
     rating: 3,
+    genre: "Western",
+    ageLimit: 12,
   },
   {
     title: "Rear Window",
+    description:
+      "A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder.",
     dayOfWeek: 6,
     duration: 112,
     loadPercentage: 80,
@@ -401,9 +556,13 @@ export const movies = [
     movieStarts: [940, 1060],
     movieEnds: [1052, 1172],
     rating: 5,
+    genre: "Thriller",
+    ageLimit: 14,
   },
   {
     title: "Alien",
+    description:
+      "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.",
     dayOfWeek: 6,
     duration: 152,
     loadPercentage: 22,
@@ -411,9 +570,13 @@ export const movies = [
     movieStarts: [720, 840, 960],
     movieEnds: [872, 992, 1112],
     rating: 4,
+    genre: "Horror",
+    ageLimit: 14,
   },
   {
     title: "City Lights",
+    description:
+      "With the aid of a wealthy erratic tippler, a dewy-eyed tramp who has fallen in love with a sightless flower girl accumulates money to be able to help her medically.",
     dayOfWeek: 6,
     duration: 87,
     loadPercentage: 90,
@@ -421,11 +584,7 @@ export const movies = [
     movieStarts: [720, 840],
     movieEnds: [807, 927],
     rating: 5,
-  },
-  {
-    title: "Trustee",
-    dayOfWeek: 7,
-    duration: Infinity,
-    rating: 100,
+    genre: "Comedy",
+    ageLimit: 6,
   },
 ];
