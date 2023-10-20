@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import MovieSuggest from '../components/MovieSuggest';
+import MovieSuggest from '../components/movieCatalog/MovieSuggest';
+import MovieSessions from '../components/movieCatalog/MovieSessions';
+import UserTimeForm from '../components/movieCatalog/UserTimeForm';
 import Divider from '../ui/Divider';
-import MovieSessions from '../components/MovieSessions';
-import UserTimeForm from '../components/UserTimeForm';
 
 const MovieSchedulePage = () => {
     const [userPreferences, setUserPreferences] = useState({
@@ -15,8 +15,8 @@ const MovieSchedulePage = () => {
 
   return (
     <div className="wrapper-ticket">
-      <div className="bg-white drop-shadow-2xl rounded-3xl p-4 m-4">
-        <h1 className="font-medium text-2xl text-center">
+      <div>
+        <h1>
           Movie Magic Scheduler
         </h1>
         <Divider />

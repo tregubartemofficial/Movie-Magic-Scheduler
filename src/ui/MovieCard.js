@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
     >
       <div className="card-face card-face--front">
         <h2 className="title-movie">{movie.title}</h2>
-        <p className="genre">
+        <p>
           <b>+{movie.ageLimit}</b> {movie.genre}
         </p>
         <div className="rating-stars">
@@ -48,6 +48,9 @@ const MovieCard = ({ movie }) => {
             </div>
           );
         })}
+        <h3>
+          Click on card to see more about movie
+        </h3>
       </div>
       <div className="card-face card-face--back">
         <h2 className="title-movie">{movie.title}</h2>

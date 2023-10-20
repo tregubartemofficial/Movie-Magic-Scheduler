@@ -5,12 +5,12 @@
 
 .card {
   width: 85vw;
-  height: 350px;
+  height: 400px;
   transform-style: preserve-3d;
   cursor: pointer;
   margin: 1rem;
   box-shadow: var(--box-shadow);
-  transition: transform 0.5s ease;
+  transition: transform 0.8s ease;
   animation: cardAppearAnimation 0.4s ease;
 }
 
@@ -21,7 +21,7 @@
 
 .card-face {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   position: absolute;
@@ -85,6 +85,7 @@
 	width: 8vmin;
 	height: 8vmin;
 	margin: 0.5vmin 1.5vmin;
+  animation: starAppearAnimation 0.5s ease-out;
 	transition: var(--tran-star);
 	transition-delay: 0s;
 	position: relative;
@@ -143,5 +144,14 @@
   }
   100% {
     scale: 1;
+  }
+}
+
+@keyframes starAppearAnimation {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
   }
 }

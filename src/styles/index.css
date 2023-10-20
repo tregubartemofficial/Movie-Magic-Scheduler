@@ -10,14 +10,15 @@
   --input-border-hover-color: #fcd34d;
   --main-color: #d97706;
   --border-radius: 4px;
-  --box-shadow: #00000066 0px 2px 2px,
-    #0000004d 0px 7px 13px -3px, #00000033 0px -1px 0px inset;
-    --tb: #ffffff40;
-	--tbh: #ffffff70;
-	--tran-star: all 0.5s ease 0.1s;	
+  --box-shadow: #00000066 0px 2px 2px, #0000004d 0px 7px 13px -3px,
+    #00000033 0px -1px 0px inset;
+  --tb: #ffffff40;
+  --tbh: #ffffff70;
+  --tran-star: all 0.5s ease 0.1s;
 }
 
-html, body {
+html,
+body {
   font-size: 16px;
 }
 
@@ -36,14 +37,55 @@ code {
     monospace;
 }
 
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .wrapper-ticket {
   max-width: 32rem;
-  margin: 4rem;
+  margin-top: 5rem;
   background-color: var(--main-color);
   border-radius: 1.5rem;
 }
 
-.wrapper-ticket + div {
+.wrapper-ticket > div {
   background-color: #fff;
   padding: 1rem;
   margin: 1rem;
@@ -105,9 +147,6 @@ code {
 }
 
 .title-orange {
-  font-size: 1.5rem;
-  line-height: 1.75rem;
-  font-weight: 600;
   color: var(--title-color);
 }
 
@@ -119,24 +158,8 @@ code {
   text-align: center;
 }
 
-.wrapper {
-  min-height: 100vh;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .movie-catalog {
   margin-top: 5rem;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .text-error {
@@ -146,11 +169,6 @@ code {
   color: var(--error-color);
 }
 
-
-/* sm */
-/* @media (min-width: 640px) {
-} */
-
 /* lg */
 @media (min-width: 1024px) {
   .card-wrapper {
@@ -158,12 +176,5 @@ code {
   }
   .card {
     width: 45vw;
-  }
-}
-
-/* xl */
-@media (min-width: 1280px) {
-  .xl\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

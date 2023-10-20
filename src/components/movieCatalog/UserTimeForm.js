@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputTime from "../ui/InputTime";
+import InputTime from "../../ui/InputTime";
 
 const UserTimeForm = ({ userPreferences, setUserPreferences }) => {
   const [preferUnfilledCinema, setPreferUnfilledCinema] = useState(false);

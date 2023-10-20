@@ -1,29 +1,22 @@
 .left-dot {
-  position: absolute;
-  border-radius: 50%;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-color: var(--main-color);
-
-  margin-top: -0.5rem;
-  left: 0;
-  margin-left: -8px;
+  color: var(--main-color);
+  font-size: x-large;
+  margin-top: -20px;
+  margin-left: -2px;
 }
 
 .right-dot {
-  position: absolute;
-  border-radius: 50%;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-color: var(--main-color);
-  margin-top: -0.5rem;
-  right: 0;
-  margin-right: -8px;
+  color: var(--main-color);
+  font-size: x-large;
+  margin-top: -20px;
+  margin-right: -2px;
 }
 
 .ticket-divider {
+  display: flex;
   border-style: dashed;
-  border-bottom-width: 2px;
+  border-top-width: 2px;
   border-color: #cbd5e0;
-  margin: 1.25rem 0;
+  margin: 10px -25px;
+  justify-content: space-between;
 }
