@@ -6,6 +6,7 @@ const MovieCatalogPage = () => {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   const filteredMovies = movies.filter((movie) => {
+    if (!date) return movie;
     return movie.dayOfWeek === new Date(date).getDay();
   });
 
