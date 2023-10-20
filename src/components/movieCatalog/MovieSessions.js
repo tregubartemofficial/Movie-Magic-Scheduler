@@ -10,9 +10,9 @@ const MovieSessions = ({ date }) => {
   return (
     <>
       {filteredMovies.length > 0 && (
-        <article className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-5">
+        <article className="wrapper-sessions">
           {filteredMovies.map((movie) => (
-            <section key={movie.title} className="flex-center flex-col mx-auto">
+            <section key={movie.title} className="flex-center col">
               <h3>{movie.title}</h3>
               {movie.movieStarts.map((movieStart, i) => {
                 const startTime = formatTimeToUTC(movieStart);

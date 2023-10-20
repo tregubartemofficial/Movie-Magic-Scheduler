@@ -6,7 +6,7 @@ const UserTimeForm = ({ userPreferences, setUserPreferences }) => {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   return (
-    <form className="flex flex-col items-center mb-5">
+    <form className="flex-center col">
       <label htmlFor="date" className="label">
         Date:
         <input

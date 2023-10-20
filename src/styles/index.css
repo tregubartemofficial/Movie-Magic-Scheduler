@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --title-color: #ea580c;
   --error-color: #ef4444;
@@ -23,35 +19,24 @@ body {
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #1e1e1e;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-h1 {
+main h1 {
   font-size: 1.75rem;
   line-height: 1.75rem;
   font-weight: 600;
   text-align: center;
 }
 
-h2 {
+main h2 {
   font-size: 1.5rem;
   line-height: 1.75rem;
   font-weight: 600;
   text-align: center;
 }
 
-h3 {
+main h3 {
   font-size: 1rem;
   line-height: 1.75rem;
   font-weight: 600;
@@ -93,6 +78,13 @@ h3 {
   filter: var(--tw-invert) var(drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)));
 }
 
+.wrapper-sessions {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
 .header {
   position: fixed;
   display: flex;
@@ -116,7 +108,7 @@ h3 {
 .link {
   color: var(--main-color);
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
   font-weight: 600;
   margin: 0 1rem;
@@ -169,6 +161,20 @@ h3 {
   color: var(--error-color);
 }
 
+/* sm */
+@media (min-width: 640px) {
+  .wrapper-sessions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .wrapper-sessions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* lg */
 @media (min-width: 1024px) {
   .card-wrapper {
@@ -176,5 +182,8 @@ h3 {
   }
   .card {
     width: 45vw;
+  }
+  .link {
+    font-size: 1.5rem;
   }
 }
