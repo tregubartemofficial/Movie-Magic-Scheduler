@@ -14,11 +14,14 @@ export const formatTimeToUTC = (timeInMinutes) => {
 
 export const formatTimeToMin = (time) => {
   if (!time) return;
+  if (typeof time === "number") time = time.toString();
   const [hours, min] = time?.split(":");
   return +hours * 60 + +min;
 };
 
 const App = () => {
+  
+
   return (
     <>
       <Header />
