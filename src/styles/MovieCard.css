@@ -41,7 +41,6 @@
   background: #a1a1a1;
   transform: rotateY(180deg);
   border-radius: var(--border-radius);
-  justify-content: center;
 }
 
 .card.is-flipped {
@@ -131,27 +130,4 @@
     0vmin 0.29vmin 1px #072239, 
     0vmin 0.3vmin 1px #072239, 
     0vmin 0.5vmin 3px #00000020 !important;
-}
-
-
-@keyframes cardAppearAnimation {
-  0% {
-    opacity: 0.3;
-    scale: 0.8;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    scale: 1;
-  }
-}
-
-@keyframes starAppearAnimation {
-  from {
-    opacity: 0.3;
-  }
-  to {
-    opacity: 1;
-  }
 }

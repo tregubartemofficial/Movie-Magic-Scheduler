@@ -1,36 +1,23 @@
-import React, { useState } from 'react'
-import MovieSuggest from '../components/movieCatalog/MovieSuggest';
-import MovieSessions from '../components/movieCatalog/MovieSessions';
-import UserTimeForm from '../components/movieCatalog/UserTimeForm';
-import Divider from '../ui/Divider';
+import React from "react";
+import MovieSuggest from "../components/movieCatalog/MovieSuggest";
+import MovieSessions from "../components/movieCatalog/MovieSessions";
+import UserTimeForm from "../components/movieCatalog/UserTimeForm";
+import Divider from "../ui/Divider";
 
 const MovieSchedulePage = () => {
-    const [userPreferences, setUserPreferences] = useState({
-      date: new Date().toISOString().split("T")[0],
-    });
-
-    const handleUserPreferences = (userPreferences) => {
-      setUserPreferences(userPreferences);
-    };
-
   return (
     <div className="wrapper-ticket">
       <div>
-        <h1>
-          Movie Magic Scheduler
-        </h1>
+        <h1>Movie Magic Scheduler</h1>
         <Divider />
-        <MovieSessions date={userPreferences.date} />
+        <MovieSessions />
         <Divider />
-        <UserTimeForm
-          userPreferences={userPreferences}
-          setUserPreferences={handleUserPreferences}
-        />
+        <UserTimeForm />
         <Divider />
-        <MovieSuggest userPreferences={userPreferences} />
+        <MovieSuggest />
       </div>
     </div>
   );
-}
+};
 
-export default MovieSchedulePage
+export default MovieSchedulePage;

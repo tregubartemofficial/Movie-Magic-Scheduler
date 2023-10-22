@@ -5,28 +5,27 @@
   --input-border-color: #fde68a;
   --input-border-hover-color: #fcd34d;
   --main-color: #d97706;
+  --body-color: #1e1e1e;
   --border-radius: 4px;
-  --box-shadow: #00000066 0px 2px 2px, #0000004d 0px 7px 13px -3px,
-    #00000033 0px -1px 0px inset;
   --tb: #ffffff40;
   --tbh: #ffffff70;
+  --box-shadow: #00000066 0px 2px 2px, #0000004d 0px 7px 13px -3px,
+    #00000033 0px -1px 0px inset;
   --tran-star: all 0.5s ease 0.1s;
 }
 
-html,
 body {
+  background-color: var(--body-color);
   font-size: 16px;
-}
-
-body {
-  background-color: #1e1e1e;
+  font-family: 'Limelight', cursive;
 }
 
 main h1 {
   font-size: 1.75rem;
   line-height: 1.75rem;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 main h2 {
@@ -37,9 +36,16 @@ main h2 {
 }
 
 main h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.75rem;
   font-weight: 600;
+  text-align: center;
+}
+
+main p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -64,10 +70,11 @@ main h3 {
 }
 
 .wrapper-ticket {
-  max-width: 32rem;
+  max-width: 40rem;
   margin-top: 5rem;
   background-color: var(--main-color);
   border-radius: 1.5rem;
+  animation: ticketAppearAnimation 0.8s ease;
 }
 
 .wrapper-ticket > div {
@@ -80,9 +87,14 @@ main h3 {
 
 .wrapper-sessions {
   display: grid;
+  align-items: start;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1rem;
+}
+
+.wrapper-sessions > section {
+  animation: cardAppearAnimation 0.4s ease;
 }
 
 .header {
@@ -102,7 +114,11 @@ main h3 {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.suggested-movie > h2 {
+  animation: starAppearAnimation 0.4s ease;
 }
 
 .link {
@@ -148,6 +164,11 @@ main h3 {
   letter-spacing: 1.5px;
   font-weight: 800;
   text-align: center;
+}
+
+.session-time {
+  margin: 0.2rem 0;
+  font-style: italic;
 }
 
 .movie-catalog {

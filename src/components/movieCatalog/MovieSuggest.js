@@ -1,9 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { movies } from "../../data";
 import { formatTimeToMin, formatTimeToUTC } from "../../App";
 
-const MovieSuggest = ({ userPreferences }) => {
-  const { date, startTime, endTime, preferUnfilledCinema } = userPreferences;
+const MovieSuggest = () => {
+  const {
+    calendar,
+    date,
+    startTime,
+    endTime,
+    preferUnfilledCinema,
+    preferOwnCalendar,
+  } = useSelector((state) => state.calendar);
 
   const filteredMovies = movies
     .reduce((selected, movie) => {
@@ -29,6 +37,19 @@ const MovieSuggest = ({ userPreferences }) => {
           selected.push({ ...movie, timeIndex: selectedTime });
         }
       }
+      // if (calendar[0] && movie.dayOfWeek === new Date(calendar[0].start).getDay()) {
+      //   const selectedTime = movie.movieStarts.findIndex(
+      //     (movieStartTime, i) => {
+      //       return (
+      //         movieStartTime >= formatTimeToMin(calendar[0].start) &&
+      //         movie.movieEnds[i] <= formatTimeToMin(calendar[0].end)
+      //       );
+      //     }
+      //   );
+      //   if (selectedTime !== -1) {
+      //     selected.push({ ...movie, timeIndex: selectedTime });
+      //   }
+      // }
       return selected;
     }, [])
     .sort((a, b) => {
@@ -40,23 +61,25 @@ const MovieSuggest = ({ userPreferences }) => {
   const movieTimeIndex = filteredMovies[0]?.timeIndex;
 
   return (
-    <section className="flex-center col">
-      {!(startTime || endTime) && (
+    <section className="suggested-movie flex-center col">
+      {!(startTime || endTime || (calendar && preferOwnCalendar)) && (
         <h2 className="title-orange">Please enter your preferred time</h2>
       )}
-      {(startTime || endTime) && filteredMovies[0]?.title && (
-        <>
-          <h2 className="title-orange">{filteredMovies[0].title}</h2>
-          <p>
-            {formatTimeToUTC(filteredMovies[0].movieStarts[movieTimeIndex])} -
-            {formatTimeToUTC(filteredMovies[0].movieEnds[movieTimeIndex])}
-          </p>
-          <p>$ {filteredMovies[0].ticketPrice}</p>
-        </>
-      )}
-      {!filteredMovies[0]?.title && (startTime || endTime) && (
-        <h2 className="title-orange">No movies available</h2>
-      )}
+      {(startTime || endTime || (calendar && preferOwnCalendar)) &&
+        filteredMovies[0]?.title && (
+          <>
+            <h2 className="title-orange">{filteredMovies[0].title}</h2>
+            <p>
+              {formatTimeToUTC(filteredMovies[0].movieStarts[movieTimeIndex])} -
+              {formatTimeToUTC(filteredMovies[0].movieEnds[movieTimeIndex])}
+            </p>
+            <p>$ {filteredMovies[0].ticketPrice}</p>
+          </>
+        )}
+      {!filteredMovies[0]?.title &&
+        (startTime || endTime || (calendar && preferOwnCalendar)) && (
+          <h2 className="title-orange">No movies available</h2>
+        )}
     </section>
   );
 };

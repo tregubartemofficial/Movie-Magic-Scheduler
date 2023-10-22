@@ -16,7 +16,7 @@
   display: flex;
   border-style: dashed;
   border-top-width: 2px;
-  border-color: #cbd5e0;
+  border-color: var(--body-color);
   margin: 20px -25px 10px;
   justify-content: space-between;
 }
