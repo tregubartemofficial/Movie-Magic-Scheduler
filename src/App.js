@@ -20,8 +20,6 @@ export const formatTimeToMin = (time) => {
 };
 
 const App = () => {
-  
-
   return (
     <>
       <Header />

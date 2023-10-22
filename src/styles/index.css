@@ -75,6 +75,7 @@ main p {
   background-color: var(--main-color);
   border-radius: 1.5rem;
   animation: ticketAppearAnimation 0.8s ease;
+  box-shadow: var(--box-shadow);
 }
 
 .wrapper-ticket > div {

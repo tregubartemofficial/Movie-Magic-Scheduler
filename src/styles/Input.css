@@ -20,7 +20,7 @@ input[type="file"]::file-selector-button:hover {
   background-color: #fff;
   color: var(--body-color);
   border-color: var(--input-border-color);
-  min-width: 100%;
+  width: 100%;
   border-bottom-width: 2px;
   border-radius: var(--border-radius);
   padding: 0.25rem 0;
