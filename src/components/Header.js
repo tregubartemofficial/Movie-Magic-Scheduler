@@ -26,6 +26,8 @@ async function getCalendarEvents(credential, clientId) {
   // } catch (error) {
   //   console.error(error);
   // }
+
+  // access token error
   alert("Not ready yet =(");
 }
 

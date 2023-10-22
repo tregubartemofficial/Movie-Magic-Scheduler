@@ -1,5 +1,5 @@
 import React from "react";
-import { setUserCalendar, setUserDate } from "../redux/calendarSlice";
+import { setUserCalendar, setUserDate, setUserEndTime, setUserStartTime } from "../redux/calendarSlice";
 import { useDispatch } from "react-redux";
 
 const extractBusyTimes = (icsData) => {
@@ -69,7 +69,9 @@ const InputCalendar = () => {
           };
         });
         dispatch(setUserCalendar(busyTimesArray));
-        dispatch(setUserDate(new Date(busyTimesArray[0].start)));
+        dispatch(setUserDate(busyTimesArray[0].start));
+        dispatch(setUserStartTime(busyTimesArray[0].start));
+        dispatch(setUserEndTime(busyTimesArray[0].end));
       } catch (error) {
         console.error(error);
       }

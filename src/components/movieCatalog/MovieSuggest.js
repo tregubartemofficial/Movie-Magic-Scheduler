@@ -37,19 +37,6 @@ const MovieSuggest = () => {
           selected.push({ ...movie, timeIndex: selectedTime });
         }
       }
-      // if (calendar[0] && movie.dayOfWeek === new Date(calendar[0].start).getDay()) {
-      //   const selectedTime = movie.movieStarts.findIndex(
-      //     (movieStartTime, i) => {
-      //       return (
-      //         movieStartTime >= formatTimeToMin(calendar[0].start) &&
-      //         movie.movieEnds[i] <= formatTimeToMin(calendar[0].end)
-      //       );
-      //     }
-      //   );
-      //   if (selectedTime !== -1) {
-      //     selected.push({ ...movie, timeIndex: selectedTime });
-      //   }
-      // }
       return selected;
     }, [])
     .sort((a, b) => {

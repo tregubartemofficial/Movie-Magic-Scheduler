@@ -1,19 +1,34 @@
 import React, { useState } from "react";
 import InputTime from "../../ui/InputTime";
 import InputCalendar from "../../ui/InputCalendar";
-import { useDispatch } from "react-redux";
-import { cleanUserPreferences, setUserDate, setUserPreferOwnCalendar, setUserPreferUnfilledCinema } from "../../redux/calendarSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  cleanUserPreferences,
+  setUserDate,
+  setUserPreferOwnCalendar,
+  setUserPreferUnfilledCinema,
+} from "../../redux/calendarSlice";
 
 const UserTimeForm = () => {
-  const [preferUnfilledCinema, setPreferUnfilledCinema] = useState(false);
-  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [preferOwnCalendar, setPreferOwnCalendar] = useState(false);
   const dispatch = useDispatch();
+  const { startTime, endTime } = useSelector((state) => state.calendar);
+
+  const [preferUnfilledCinema, setPreferUnfilledCinema] = useState(false);
+  const [preferOwnCalendar, setPreferOwnCalendar] = useState(false);
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   return (
     <form className="flex-center col">
       {preferOwnCalendar ? (
-        <InputCalendar />
+        <>
+          <InputCalendar />
+          {startTime && (
+              <p>
+                {new Date(startTime).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: 'numeric' })} -
+                {new Date(endTime).toLocaleString([], { hour: 'numeric', minute: 'numeric' })}
+              </p>
+          )}
+        </>
       ) : (
         <>
           <label htmlFor="date" className="label">
