@@ -3,6 +3,8 @@
   font-size: x-large;
   margin-top: -20px;
   margin-left: -2px;
+  user-select: none;
+  cursor: default;
 }
 
 .right-dot {
@@ -10,6 +12,8 @@
   font-size: x-large;
   margin-top: -20px;
   margin-right: -2px;
+  user-select: none;
+  cursor: default;
 }
 
 .ticket-divider {
