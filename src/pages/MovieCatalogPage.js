@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import MovieCard from "../ui/MovieCard";
 import { movies } from "../data";
+import { useSelector } from "react-redux";
 
 const MovieCatalogPage = () => {
+  const state = useSelector((state) => state.user);
+  console.log(state);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   const filteredMovies = movies.filter((movie) => {
