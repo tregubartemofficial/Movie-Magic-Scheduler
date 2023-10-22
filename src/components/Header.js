@@ -1,40 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
-// import jwtDecode from "jwt-decode";
-
-async function getCalendarEvents(credential, clientId) {
-  // const decoded = jwtDecode(credential);
-  // try {
-  //   const response = await fetch(
-  //     `https://www.googleapis.com/calendar/v3/calendars/${decoded.email}`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         Authorization: `Bearer ${}`,
-  //       },
-  //     }
-  //   );
-  //   if (!response.ok) {
-  //     const errorMessage = await response.text();
-  //     console.error(
-  //       `API request failed with status ${response.status}: ${errorMessage}`
-  //     );
-  //     throw new Error("Failed to fetch calendar events");
-  //   }
-  //   const data = await response.json();
-  // } catch (error) {
-  //   console.error(error);
-  // }
-
-  // access token error
-  alert("Not ready yet =(");
-}
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 const Header = () => {
-  const handleLogin = (response) => {
-    const { clientId, credential } = response;
-    getCalendarEvents(credential, clientId);
+  const google = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      const userInfo = await axios
+        .get("https://www.googleapis.com/oauth2/v3/userinfo", {
+          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+        })
+        .then((res) => res.data);
+      fetchUserCalendar(userInfo, tokenResponse);
+    },
+  });
+
+  const fetchUserCalendar = async (userInfo, tokenResponse) => {
+    console.log("User's information:", userInfo);
+    console.log("Token response:", tokenResponse);
+    if (userInfo && userInfo.sub) {
+      const calendarInfo = axios.get(
+        `https://www.googleapis.com/calendar/v3/calendars/${userInfo.sub}`,
+        {
+          headers: {
+            Authorization: `Bearer ${tokenResponse.access_token}`,
+          },
+        }
+      );
+      console.log("User's Calendar Info:", calendarInfo.data);
+    } else {
+      console.log("User's information is not available.");
+    }
   };
 
   return (
@@ -55,11 +51,7 @@ const Header = () => {
           Movies
         </Link>
       </nav>
-      <GoogleLogin
-        onSuccess={handleLogin}
-        onError={(error) => console.error(error)}
-        type="icon"
-      />
+      <button onClick={google}>Sign in</button>
     </header>
   );
 };
