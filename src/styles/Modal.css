@@ -20,11 +20,10 @@
 }
 
 .modal-content {
+  height: 100%;
   padding: 20px;
   border-radius: 12px;
   transition: 0.4s all;
-  width: 90vw;
-  height: 90vh;
   color: #fff;
 }
 

@@ -47,7 +47,7 @@ const FilterModal = ({ active, setActive}) => {
         </div>
         <UserTimeForm />
         <div className="flex-center col">
-          <h3>Genre</h3>
+          <h3>Genres</h3>
           <div className="genres-filter">
             {genres.map((genre) => (
               <label

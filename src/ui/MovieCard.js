@@ -1,17 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { formatTimeToUTC } from "../App";
-import "../styles/MovieCard.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OGZmNTFmMTAwMmQyYjc2YjQ0OGExZTU1NzhjYTU5ZSIsInN1YiI6IjY1MzgxZDBjNDFhYWM0MDBlMDQwNTlkNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IKZylHI9D7VnwoXWs6WSaP4-6sRW3ES4UEH64WD7hgs",
-  },
-};
+import { formatTimeToUTC } from "../App";
+import { optionsForMovies } from "../calendarAPI";
+import "../styles/MovieCard.css";
 
 const MovieCard = ({ movie }) => {
   const [posterUrl, setPosterUrl] = useState(null);
@@ -20,14 +12,14 @@ const MovieCard = ({ movie }) => {
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3/search/movie?query=${movie.title}&language=en`,
-        options
+        optionsForMovies
       );
 
       if (response.data.results && response.data.results.length > 0) {
         const movieId = response.data.results[0].id;
         const movieDetailsResponse = await axios.get(
           `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=images&language=en`,
-          options
+          optionsForMovies
         );
         const posterPath =
           movieDetailsResponse.data.images.posters[0].file_path;
@@ -38,7 +30,6 @@ const MovieCard = ({ movie }) => {
       return null;
     }
   }, [movie.title]);
-
 
   useEffect(() => {
     searchMovie().then((url) => {

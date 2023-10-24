@@ -4,7 +4,6 @@ import { movies } from "../data";
 import { useSelector } from "react-redux";
 import { formatTimeToMin } from "../App";
 
-
 const MovieListPage = () => {
   // const state = useSelector((state) => state.user);
   const {
@@ -18,35 +17,33 @@ const MovieListPage = () => {
   } = useSelector((state) => state.calendar);
 
   const filteredMovies = movies
-    .reduce((selected, movie) => {
+    .filter((movie) => {
       if (movie.dayOfWeek === new Date(date).getDay()) {
-        const selectedTime = movie.movieStarts.findIndex(
-          (movieStartTime, i) => {
-            if (startTime && endTime) {
-              return (
-                movie.movieEnds[i] <= formatTimeToMin(endTime) &&
-                movieStartTime >= formatTimeToMin(startTime)
-              );
-            }
-            if (startTime) {
-              return movieStartTime >= formatTimeToMin(startTime);
-            }
-            if (endTime) {
-              return movie.movieEnds[i] <= formatTimeToMin(endTime);
-            }
-            return movie;
-          }
-        );
-        if (selectedTime !== -1) {
-          selected.push(movie);
+        if (selectedGenres.length) {
+          return selectedGenres.some((genre) => movie.genre.includes(genre));
         }
-        if (selectedGenres.lenght) {
-          selectedGenres.forEach((genre) => {
-            if (movie.genre.includes(genre)) {
-              selected.push(movie);
-            }
-          });
+        return movie;
+      }
+      return false;
+    })
+    .reduce((selected, movie) => {
+      const selectedTime = movie.movieStarts.findIndex((movieStartTime, i) => {
+        if (startTime && endTime) {
+          return (
+            movie.movieEnds[i] <= formatTimeToMin(endTime) &&
+            movieStartTime >= formatTimeToMin(startTime)
+          );
         }
+        if (startTime) {
+          return movieStartTime >= formatTimeToMin(startTime);
+        }
+        if (endTime) {
+          return movie.movieEnds[i] <= formatTimeToMin(endTime);
+        }
+        return movie;
+      });
+      if (selectedTime !== -1) {
+        selected.push(movie);
       }
       return selected;
     }, [])
@@ -57,12 +54,8 @@ const MovieListPage = () => {
       return b.rating - a.rating;
     });
 
-
   return (
-    <article
-      className="card-wrapper"
-
-    >
+    <article className="card-wrapper">
       {filteredMovies.map((movie) => (
         <MovieCard key={movie.title} movie={movie} />
       ))}

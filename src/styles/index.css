@@ -155,7 +155,7 @@ p {
   }
 
   .navigation {
-        padding: 10px 15px;
+    padding: 10px 15px;
   }
   .filter {
     padding: 5px 0;
@@ -165,10 +165,13 @@ p {
     padding-top: 130px;
   }
 
+  .genres-filter {
+    justify-content: flex-start;
+  }
 }
 
 /* lg */
-@media (min-width: 1024px) {
+@media (min-width: 1070px) {
   .card-wrapper {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
