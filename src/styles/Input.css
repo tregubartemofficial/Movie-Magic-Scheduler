@@ -54,10 +54,7 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .checkbox {
-  margin: 0.8rem 0.3rem 0;
-  width: 1rem;
-  height: 1rem;
-  cursor: pointer;
+  display: none;
 }
 
 .label {
@@ -67,3 +64,23 @@ input[type="file"]::file-selector-button:hover {
   margin: 1rem 0.5rem 0 0.5rem;
   letter-spacing: 1px;
 }
+
+.label-checkbox {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem 1rem;
+  text-align: center;
+  border: 1px solid var(--main-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.label-checkbox:hover {
+  background-color: var(--main-color);
+}
+
+.label-checkbox-active {
+  background-color: var(--main-color);
+}
+

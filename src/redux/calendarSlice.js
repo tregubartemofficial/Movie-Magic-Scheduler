@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  calendar: null,
+  calendar: "",
   date: new Date().toISOString().split("T")[0],
-  startTime: null,
-  endTime: null,
+  startTime: "",
+  endTime: "",
   preferUnfilledCinema: false,
   preferOwnCalendar: false,
+  selectedGenres: [],
 };
 
 const calendarSlice = createSlice({
@@ -31,11 +32,29 @@ const calendarSlice = createSlice({
     setUserPreferOwnCalendar: (state, { payload }) => {
       state.preferOwnCalendar = payload;
     },
+    setUserGenre: (state, { payload }) => {
+      if (state.selectedGenres.includes(payload)) {
+        state.selectedGenres = state.selectedGenres.filter(
+          (genre) => genre !== payload
+        );
+      } else {
+        state.selectedGenres.push(payload);
+      }
+    },
     cleanUserPreferences: (state) => {
-      state.calendar = null;
+      state.calendar = "";
       state.date = new Date().toISOString().split("T")[0];
-      state.startTime = null;
-      state.endTime = null;
+      state.startTime = "";
+      state.endTime = "";
+    },
+    cleanAllUserPreferences: (state) => {
+      state.calendar = "";
+      state.date = new Date().toISOString().split("T")[0];
+      state.startTime = "";
+      state.endTime = "";
+      state.preferUnfilledCinema = false;
+      state.preferOwnCalendar = false;
+      state.selectedGenres = [];
     },
   },
 });
@@ -48,5 +67,7 @@ export const {
   setUserPreferUnfilledCinema,
   setUserPreferOwnCalendar,
   cleanUserPreferences,
+  cleanAllUserPreferences,
+  setUserGenre,
 } = calendarSlice.actions;
 export default calendarSlice.reducer;

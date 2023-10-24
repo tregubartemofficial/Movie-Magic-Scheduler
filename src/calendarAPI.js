@@ -45,5 +45,3 @@ export const createCalendar = async (summary) => {
     throw error;
   }
 };
-
-// ... Define more functions for other API endpoints as needed

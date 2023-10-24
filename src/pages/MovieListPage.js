@@ -1,14 +1,18 @@
 import React from "react";
+import MovieCard from "../ui/MovieCard";
+import { movies } from "../data";
 import { useSelector } from "react-redux";
-import { movies } from "../../data";
-import { formatTimeToMin, formatTimeToUTC } from "../../App";
+import { formatTimeToMin } from "../App";
 
-const MovieSuggest = () => {
+
+const MovieListPage = () => {
+  // const state = useSelector((state) => state.user);
   const {
     calendar,
-    date,
     startTime,
     endTime,
+    date,
+    selectedGenres,
     preferUnfilledCinema,
     preferOwnCalendar,
   } = useSelector((state) => state.calendar);
@@ -30,11 +34,18 @@ const MovieSuggest = () => {
             if (endTime) {
               return movie.movieEnds[i] <= formatTimeToMin(endTime);
             }
-            return false;
+            return movie;
           }
         );
         if (selectedTime !== -1) {
-          selected.push({ ...movie, timeIndex: selectedTime });
+          selected.push(movie);
+        }
+        if (selectedGenres.lenght) {
+          selectedGenres.forEach((genre) => {
+            if (movie.genre.includes(genre)) {
+              selected.push(movie);
+            }
+          });
         }
       }
       return selected;
@@ -45,30 +56,22 @@ const MovieSuggest = () => {
       }
       return b.rating - a.rating;
     });
-  const movieTimeIndex = filteredMovies[0]?.timeIndex;
+
 
   return (
-    <section className="suggested-movie flex-center col">
-      {!(startTime || endTime || (calendar && preferOwnCalendar)) && (
-        <h2 className="title-orange">Please enter your preferred time</h2>
-      )}
-      {(startTime || endTime || (calendar && preferOwnCalendar)) &&
-        filteredMovies[0]?.title && (
-          <>
-            <h2 className="title-orange">{filteredMovies[0].title}</h2>
-            <p>
-              {formatTimeToUTC(filteredMovies[0].movieStarts[movieTimeIndex])} -
-              {formatTimeToUTC(filteredMovies[0].movieEnds[movieTimeIndex])}
-            </p>
-            <p>$ {filteredMovies[0].ticketPrice}</p>
-          </>
-        )}
+    <article
+      className="card-wrapper"
+
+    >
+      {filteredMovies.map((movie) => (
+        <MovieCard key={movie.title} movie={movie} />
+      ))}
       {!filteredMovies[0]?.title &&
         (startTime || endTime || (calendar && preferOwnCalendar)) && (
           <h2 className="title-orange">No movies available</h2>
         )}
-    </section>
+    </article>
   );
 };
 
-export default MovieSuggest;
+export default MovieListPage;

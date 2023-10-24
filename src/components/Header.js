@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 import { setIsLoggedIn, setUser } from "../redux/userSlice";
+import "../styles/Header.css";
+import FilterModal from "../ui/FilterModal";
+import SelectDay from "./movieCatalog/SelectDay";
+
+
 
 const Header = () => {
   const [accessToken, setAccessToken] = useState(null);
+  const [openFilterModal, setOpenFilterModal] = useState(false)
   const dispatch = useDispatch();
+  const location = useLocation();
+
 
   const googleLogin = useGoogleLogin({
     clientId:
@@ -44,33 +52,39 @@ const Header = () => {
   };
 
   return (
-    <header className="header" role="banner">
-      <nav
-        className="navigation"
-        role="navigation"
-        aria-label="Main Navigation"
-      >
-        <Link to="/" className="link" aria-label="Go to Select movie page">
-          Select movie
-        </Link>
-        <Link
-          to="/movie-catalog"
-          className="link"
-          aria-label="Go to Movies page"
-        >
-          Movies
-        </Link>
-        {accessToken ? (
-          <button className="button" onClick={googleLogout}>
-            Sign out
-          </button>
-        ) : (
-          <button className="button" onClick={googleLogin}>
-            Sign in
-          </button>
+    <>
+      <header className="header" role="banner">
+        <nav className="navigation" role="navigation" aria-label="Navigation">
+          <Link to="/" className="link" aria-label="Go to movie page">
+            Movie Magic Scheduler
+          </Link>
+          {accessToken ? (
+            <button className="button" onClick={googleLogout}>
+              Sign out
+            </button>
+          ) : (
+            <button className="button" onClick={googleLogin}>
+              Sign in
+            </button>
+          )}
+        </nav>
+        {location.pathname === "/" && (
+          <div className="filter">
+            <button
+              className="button"
+              onClick={() => setOpenFilterModal(true)}
+            >
+              Filters
+            </button>
+            <SelectDay />
+            <FilterModal
+              active={openFilterModal}
+              setActive={setOpenFilterModal}
+            />
+          </div>
         )}
-      </nav>
-    </header>
+      </header>
+    </>
   );
 };
 

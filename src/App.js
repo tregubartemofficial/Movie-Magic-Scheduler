@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import MovieSchedulePage from "./pages/MovieSchedulePage";
-import MovieCatalogPage from "./pages/MovieCatalogPage";
+import MoviePage from "./pages/MoviePage";
+import MovieListPage from "./pages/MovieListPage";
 import Header from "./components/Header";
 
 export const formatTimeToUTC = (timeInMinutes) => {
@@ -25,8 +25,8 @@ const App = () => {
       <Header />
       <main className="wrapper">
         <Routes>
-          <Route path="/" element={<MovieSchedulePage />} />
-          <Route path="/movie-catalog" element={<MovieCatalogPage />} />
+          <Route path="/" element={<MovieListPage />} />
+          <Route path="/:title" element={<MoviePage />} />
         </Routes>
       </main>
     </>
