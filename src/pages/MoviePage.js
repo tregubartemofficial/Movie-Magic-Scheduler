@@ -2,6 +2,9 @@ import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { optionsForMovies } from "../calendarAPI";
+import { movies } from "../data";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { formatTimeToUTC } from "../App";
 
 const MoviePage = () => {
   const [movie, setMovie] = useState({});
@@ -24,8 +27,13 @@ const MoviePage = () => {
         const posterPath =
           movieDetailsResponse.data.images.posters[0].file_path;
 
+        const result = movies.filter((movie) => {
+          return movie.title === movieTitle.split("%20").join(" ");
+        });
+
         return {
           ...movieDetailsResponse.data,
+          ...result[0],
           posterImg: `https://image.tmdb.org/t/p/original${posterPath}`,
         };
       }
@@ -41,32 +49,58 @@ const MoviePage = () => {
     });
   }, [searchMovie]);
 
-  console.log(movie);
   return (
-      movie && movie.posterImg && (
-        <div className="movie-details">
-          <img src={movie.posterImg} alt={movie.title} />
-          <div className="movie-info">
-            <h1>{movie.title}</h1>
-            <p>{movie.overview}</p>
-            <ul>
-              <li>
-                <strong>Release Date:</strong> {movie.release_date}
-              </li>
-              <li>
-                <strong>Runtime:</strong> {movie.runtime} minutes
-              </li>
-              <li>
-                <strong>Genres:</strong>{" "}
-                {movie.genres.map((genre) => genre.name).join(", ")}
-              </li>
-              <li>
-                <strong>Rating:</strong> {movie.vote_average} / 10
-              </li>
-            </ul>
-          </div>
+    movie &&
+    movie.posterImg && (
+      <div className="movie-details">
+        <img src={movie.posterImg} alt={movie.title} />
+        <div className="movie-info">
+          <h1>{movie.title}</h1>
+          <p>{movie.overview}</p>
+          <ul>
+            <li>
+              <strong>Release Date:</strong> {movie.release_date}
+            </li>
+            <li>
+              <strong>Release Date:</strong> {movie.release_date}
+            </li>
+            <li>
+              <strong>Runtime:</strong> {movie.duration} minutes
+            </li>
+            <li>
+              <strong>Genres:</strong>
+              {movie.genres.map((genre) => genre.name).join(", ")}
+            </li>
+            <li>
+              <strong>Rating:</strong>
+              {[...Array(5)].map((_, i) => {
+                const isActive = i < movie.rating;
+                if (isActive)
+                  return <AiFillStar key={i} style={{ display: "inline" }} />;
+                return <AiOutlineStar key={i} style={{ display: "inline" }} />;
+              })}
+            </li>
+            <li>
+              <strong>Ticket price:</strong> {movie.ticketPrice} $
+            </li>
+
+            <li>
+              <strong className="title-orange">Sessions:</strong>
+
+              {movie.movieStarts.map((movieStart, i) => {
+                const startTime = formatTimeToUTC(movieStart);
+                const endTime = formatTimeToUTC(movie.movieEnds[i]);
+                return (
+                  <div key={i}>
+                    <strong>{startTime}</strong>- {endTime}
+                  </div>
+                );
+              })}
+            </li>
+          </ul>
         </div>
-      )
+      </div>
+    )
   );
 };
 
