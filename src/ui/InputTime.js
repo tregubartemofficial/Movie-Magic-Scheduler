@@ -5,9 +5,8 @@ import { formatTimeToMin } from "../App";
 import "../styles/Input.css";
 
 const InputTime = ({ type }) => {
-  const { endTime, startTime } = useSelector((state) => state.calendar);
   const dispatch = useDispatch();
-  const [time, setTime] = useState("");
+  const { endTime, startTime } = useSelector((state) => state.calendar);
   const [timeError, setTimeError] = useState(false);
 
   const handleTime = (event) => {
@@ -16,7 +15,7 @@ const InputTime = ({ type }) => {
       formatTimeToMin(event.target.value) > formatTimeToMin(endTime)
     ) {
       setTimeError(true);
-      setTime("");
+      dispatch(setUserStartTime(""));
       return;
     }
     if (
@@ -24,11 +23,10 @@ const InputTime = ({ type }) => {
       formatTimeToMin(event.target.value) < formatTimeToMin(startTime)
     ) {
       setTimeError(true);
-      setTime("");
+      dispatch(setUserEndTime(""));
       return;
     }
     setTimeError(false);
-    setTime(event.target.value);
     type === "startTime"
       ? dispatch(setUserStartTime(event.target.value))
       : dispatch(setUserEndTime(event.target.value));
@@ -42,7 +40,7 @@ const InputTime = ({ type }) => {
         id={`${type}`}
         className={`${timeError ? "input-error" : ""} input`}
         type="time"
-        value={time}
+        value={type === "startTime" ? startTime : endTime}
         max={type === "startTime" ? endTime : "23:59"}
         min={type === "startTime" ? "00:00" : startTime}
         onChange={(event) => handleTime(event)}

@@ -5,6 +5,7 @@
   margin-left: -2px;
   user-select: none;
   cursor: default;
+  text-shadow: none;
 }
 
 .right-dot {
@@ -14,6 +15,7 @@
   margin-right: -2px;
   user-select: none;
   cursor: default;
+  text-shadow: none;
 }
 
 .ticket-divider {

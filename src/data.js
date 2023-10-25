@@ -402,7 +402,7 @@ export const movies = [
     movieStarts: [1110, 1220, 1330],
     movieEnds: [1210, 1320, 1430],
     rating: 5,
-    genre: "Animation",
+    genre: "Drama",
     ageLimit: 6,
   },
   {
