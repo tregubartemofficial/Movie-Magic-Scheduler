@@ -8,11 +8,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80vw;
+  width: 90vw;
   height: 160px;
   transform-style: preserve-3d;
   cursor: pointer;
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 1rem 0;
   background: #fff;
   box-shadow: var(--box-shadow);

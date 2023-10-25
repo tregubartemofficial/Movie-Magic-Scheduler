@@ -146,6 +146,7 @@ p {
   width: 33vw;
   max-width: 350px;
   margin-right: 2rem;
+  object-fit: contain;
 }
 
 .movie-info {

@@ -48,11 +48,10 @@ const MovieCard = ({ movie }) => {
         <div className="wrapper-time-table">
           {movie.movieStarts.map((movieStart, i) => {
             const startTime = formatTimeToUTC(movieStart);
-            const endTime = formatTimeToUTC(movie.movieEnds[i]);
             return (
               <div className="time-table" key={i}>
                 <div className="time">
-                  <b>{startTime}</b> - {endTime}
+                  <b>{startTime}</b>
                 </div>
                 <p className="ticket-price">{movie.ticketPrice} $</p>
               </div>
