@@ -21,10 +21,14 @@ const calendarSlice = createSlice({
       state.date = payload;
     },
     setUserStartTime: (state, { payload }) => {
-      state.startTime = payload;
+      if (Array.isArray(payload)) {
+        console.log(payload);
+      } else state.startTime = payload;
     },
     setUserEndTime: (state, { payload }) => {
-      state.endTime = payload;
+      if (Array.isArray(payload)) {
+        console.log(payload);
+      } else state.endTime = payload;
     },
     setUserPreferUnfilledCinema: (state, { payload }) => {
       state.preferUnfilledCinema = payload;

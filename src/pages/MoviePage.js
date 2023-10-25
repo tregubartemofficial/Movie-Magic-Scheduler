@@ -62,9 +62,6 @@ const MoviePage = () => {
               <strong>Release Date:</strong> {movie.release_date}
             </li>
             <li>
-              <strong>Release Date:</strong> {movie.release_date}
-            </li>
-            <li>
               <strong>Runtime:</strong> {movie.duration} minutes
             </li>
             <li>

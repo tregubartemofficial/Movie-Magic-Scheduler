@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
@@ -7,9 +7,10 @@ import { setIsLoggedIn, setUser } from "../redux/userSlice";
 import "../styles/Header.css";
 import FilterModal from "../ui/FilterModal";
 import SelectDay from "./SelectDay";
+import useAccessToken from "../hooks/useAccessToken";
 
 const Header = () => {
-  const [accessToken, setAccessToken] = useState(null);
+  const [accessToken, setAccessToken] = useAccessToken(null);
   const [openFilterModal, setOpenFilterModal] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -23,8 +24,8 @@ const Header = () => {
           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
         })
         .then((res) => res.data);
-      localStorage.setItem("access_token", tokenResponse.access_token);
-      dispatch(setUser({ userInfo }));
+      localStorage.setItem("accessToken", tokenResponse.access_token);
+      dispatch(setUser(userInfo));
       dispatch(setIsLoggedIn(true));
       setAccessToken(tokenResponse.access_token);
     },
@@ -39,7 +40,7 @@ const Header = () => {
           token: accessToken,
         },
       });
-      localStorage.removeItem("access_token");
+      localStorage.removeItem("accessToken");
       dispatch(setIsLoggedIn(false));
       dispatch(setUser({}));
       setAccessToken(null);
@@ -70,7 +71,7 @@ const Header = () => {
             </button>
           ) : (
             <button className="button" onClick={googleLogin}>
-              Sign in
+              Sign in via Google Calendar
             </button>
           )}
         </nav>

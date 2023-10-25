@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDate } from "../redux/calendarSlice";
+import { formatDate } from "../App";
 
-const formatDate = (date) => {
-  return new Date(date).toLocaleDateString("en-US", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  });
-};
+
 
 const listOfDays = () => {
   const nextSixDays = [];

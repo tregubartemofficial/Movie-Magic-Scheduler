@@ -19,6 +19,14 @@ export const formatTimeToMin = (time) => {
   return +hours * 60 + +min;
 };
 
+export const formatDate = (date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+};
+
 const App = () => {
   return (
     <>
