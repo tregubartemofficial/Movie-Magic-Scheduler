@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserDate } from "../../redux/calendarSlice";
+import { setUserDate } from "../redux/calendarSlice";
 
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString("en-US", {

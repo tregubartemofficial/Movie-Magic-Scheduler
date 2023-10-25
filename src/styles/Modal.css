@@ -22,6 +22,7 @@
 .modal-content {
   height: 100%;
   padding: 20px;
+  align-items: flex-start;
   border-radius: 12px;
   transition: 0.4s all;
   color: #fff;

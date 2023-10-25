@@ -38,26 +38,28 @@ const MovieCard = ({ movie }) => {
   }, [searchMovie]);
 
   return (
-    <Link className="card" to={`/${movie.title.replace(/\s/g, "_")}`}>
-        <img src={posterUrl} alt={movie.title} className="card-img" />
-        <div className="card-content">
-          <h2 className="title-movie">{movie.title}</h2>
-          <p>
-            <b>+{movie.ageLimit}</b> {movie.genre}
-          </p>
+    <Link className="card" to={`/${movie.title}`}>
+      <img src={posterUrl} alt={movie.title} className="card-img" />
+      <div className="card-content">
+        <h2 className="title-movie">{movie.title}</h2>
+        <p>
+          <b>+{movie.ageLimit}</b> {movie.genre}
+        </p>
+        <div className="wrapper-time-table">
           {movie.movieStarts.map((movieStart, i) => {
             const startTime = formatTimeToUTC(movieStart);
             const endTime = formatTimeToUTC(movie.movieEnds[i]);
             return (
               <div className="time-table" key={i}>
                 <div className="time">
-                  <p key={i}>{`${startTime} - ${endTime}`}</p>
+                  <b>{startTime}</b> - {endTime}
                 </div>
                 <p className="ticket-price">{movie.ticketPrice} $</p>
               </div>
             );
           })}
         </div>
+      </div>
     </Link>
   );
 };

@@ -1,20 +1,20 @@
 .card-wrapper {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
+  margin-top: 140px;
 }
 
 .card {
-    display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80vw;
-  height: 230px;
+  height: 210px;
   transform-style: preserve-3d;
   cursor: pointer;
   margin: 1rem;
   padding: 1rem 0;
   background: #fff;
-
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   transition: transform 0.8s ease;
@@ -28,31 +28,40 @@
 
 .card-content {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  flex: 2;
+  flex: 2 1;
   padding: 0 1rem;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.card-img {
+  height: 210px;
+  border-radius: var(--border-radius);
+}
+
+
+.wrapper-time-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .time-table {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   margin: 0.5rem;
-}
-
-.card-img {
-  height: 235px;
-  border-radius: var(--border-radius);
 }
 
 .time {
   border-radius: var(--border-radius);
   background-color: var(--title-color);
   padding: 0.5rem 1rem;
-  margin: 0 0.5rem 0 0;
   color: #ffffff;
 }
 
@@ -61,52 +70,50 @@
 }
 
 .rating-stars {
-	display: block;
-	width: 65vmin;
-	padding: 3vmin;
-	border-radius: 5vmin;
-	position: relative;
-	display: flex;
-	justify-content: center;
+  display: block;
+  width: 65vmin;
+  padding: 3vmin;
+  border-radius: 5vmin;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.star-input { display: none; }
+.star-input {
+  display: none;
+}
 
 .star {
-	width: 8vmin;
-	height: 8vmin;
-	margin: 0.5vmin 1.5vmin;
+  width: 8vmin;
+  height: 8vmin;
+  margin: 0.5vmin 1.5vmin;
   animation: starAppearAnimation 0.5s ease-out;
-	transition: var(--tran-star);
-	transition-delay: 0s;
-	position: relative;
+  transition: var(--tran-star);
+  transition-delay: 0s;
+  position: relative;
 }
 
 .star:before {
-	width: 100%;
-	height: 100%;
-	content: "\2605";
-	z-index: 2;
-	font-size: 5vmin;
-	line-height: 11vmin;
-	color: var(--input-border-hover-color);
-	text-align: center;
-	transform: translateY(0vmin);
-	transition: var(--tran-star);
-  text-shadow: 
-		1px 1px 1px var(--tb), 
-		-1px -1px 1px var(--tb), 
-		-1px 0px 1px var(--tb), 
-		1px 0px 1px var(--tb), 		
-		0vmin 0.1vmin 1px #fcd34d, 
-		0vmin 0.1vmin 1px #fcd34d, 
-		0vmin 0.3vmin 1px #ffdd6d, 
-		0vmin 0.3vmin 1px var(--title-color);
-	filter: drop-shadow(0px 5px 10px #f8dc80) drop-shadow(0px 5px 15px var(--input-border-color));		
+  width: 100%;
+  height: 100%;
+  content: "\2605";
+  z-index: 2;
+  font-size: 5vmin;
+  line-height: 11vmin;
+  color: var(--input-border-hover-color);
+  text-align: center;
+  transform: translateY(0vmin);
+  transition: var(--tran-star);
+  text-shadow: 1px 1px 1px var(--tb), -1px -1px 1px var(--tb),
+    -1px 0px 1px var(--tb), 1px 0px 1px var(--tb), 0vmin 0.1vmin 1px #fcd34d,
+    0vmin 0.1vmin 1px #fcd34d, 0vmin 0.3vmin 1px #ffdd6d,
+    0vmin 0.3vmin 1px var(--title-color);
+  filter: drop-shadow(0px 5px 10px #f8dc80)
+    drop-shadow(0px 5px 15px var(--input-border-color));
 }
 
 .star:hover:before {
-	filter: none;
+  filter: none;
 }
 
 .star-inactive:before {
@@ -114,12 +121,7 @@
   color: #18242f !important;
   transform: translateY(1.5vmin);
   filter: none;
-  text-shadow: 
-    1px 1px 1px var(--tbh), 
-    -1px -1px 1px var(--tbh), 
-    -1px 0px 1px var(--tbh), 
-    1px 0px 1px var(--tbh), 
-    0vmin 0.29vmin 1px #072239, 
-    0vmin 0.3vmin 1px #072239, 
-    0vmin 0.5vmin 3px #00000020 !important;
+  text-shadow: 1px 1px 1px var(--tbh), -1px -1px 1px var(--tbh),
+    -1px 0px 1px var(--tbh), 1px 0px 1px var(--tbh), 0vmin 0.29vmin 1px #072239,
+    0vmin 0.3vmin 1px #072239, 0vmin 0.5vmin 3px #00000020 !important;
 }

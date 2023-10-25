@@ -26,7 +26,6 @@
   position: absolute;
   top: calc(100% + 5px);
   right: 10px;
-  width: 220px;
   padding: 25px;
   background-color: #fff;
   border: 1px solid var(--main-color);

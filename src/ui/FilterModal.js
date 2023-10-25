@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Modal.css'
-import UserTimeForm from '../components/movieCatalog/UserTimeForm';
+import UserTimeForm from '../components/UserTimeForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { cleanAllUserPreferences, setUserGenre } from '../redux/calendarSlice';
 
@@ -16,6 +16,7 @@ const genres = [
   'Romance',
   'Western',
   'Horror',
+  'Animation',
 ];
 
 const FilterModal = ({ active, setActive}) => {

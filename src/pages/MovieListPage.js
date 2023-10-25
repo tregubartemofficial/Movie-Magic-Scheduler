@@ -7,13 +7,11 @@ import { formatTimeToMin } from "../App";
 const MovieListPage = () => {
   // const state = useSelector((state) => state.user);
   const {
-    calendar,
     startTime,
     endTime,
     date,
     selectedGenres,
     preferUnfilledCinema,
-    preferOwnCalendar,
   } = useSelector((state) => state.calendar);
 
   const filteredMovies = movies
@@ -59,8 +57,7 @@ const MovieListPage = () => {
       {filteredMovies.map((movie) => (
         <MovieCard key={movie.title} movie={movie} />
       ))}
-      {!filteredMovies[0]?.title &&
-        (startTime || endTime || (calendar && preferOwnCalendar)) && (
+      {!filteredMovies[0]?.title && (
           <h2 className="title-orange">No movies available</h2>
         )}
     </article>

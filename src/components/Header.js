@@ -6,7 +6,7 @@ import axios from "axios";
 import { setIsLoggedIn, setUser } from "../redux/userSlice";
 import "../styles/Header.css";
 import FilterModal from "../ui/FilterModal";
-import SelectDay from "./movieCatalog/SelectDay";
+import SelectDay from "./SelectDay";
 
 
 

@@ -1,12 +1,12 @@
 import React from "react";
-import InputTime from "../../ui/InputTime";
-import InputCalendar from "../../ui/InputCalendar";
+import InputTime from "../ui/InputTime";
+import InputCalendar from "../ui/InputCalendar";
 import { useDispatch, useSelector } from "react-redux";
 import {
   cleanUserPreferences,
   setUserPreferOwnCalendar,
   setUserPreferUnfilledCinema,
-} from "../../redux/calendarSlice";
+} from "../redux/calendarSlice";
 
 const UserTimeForm = () => {
   const dispatch = useDispatch();
