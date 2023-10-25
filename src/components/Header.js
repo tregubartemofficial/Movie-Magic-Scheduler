@@ -8,14 +8,11 @@ import "../styles/Header.css";
 import FilterModal from "../ui/FilterModal";
 import SelectDay from "./SelectDay";
 
-
-
 const Header = () => {
   const [accessToken, setAccessToken] = useState(null);
-  const [openFilterModal, setOpenFilterModal] = useState(false)
+  const [openFilterModal, setOpenFilterModal] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
-
 
   const googleLogin = useGoogleLogin({
     clientId:
@@ -51,6 +48,15 @@ const Header = () => {
     }
   };
 
+  const handleToggleModal = () => {
+    setOpenFilterModal((prev) => !prev);
+    if (!openFilterModal) {
+      document.body.classList.add("body-overflow-hidden");
+    } else {
+      document.body.classList.remove("body-overflow-hidden");
+    }
+  };
+
   return (
     <>
       <header className="header" role="banner">
@@ -70,16 +76,13 @@ const Header = () => {
         </nav>
         {location.pathname === "/" && (
           <div className="filter">
-            <button
-              className="button"
-              onClick={() => setOpenFilterModal(true)}
-            >
+            <button className="button" onClick={handleToggleModal}>
               Filters
             </button>
             <SelectDay />
             <FilterModal
               active={openFilterModal}
-              setActive={setOpenFilterModal}
+              setActive={handleToggleModal}
             />
           </div>
         )}

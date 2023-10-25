@@ -86,7 +86,6 @@ const MoviePage = () => {
 
             <li>
               <strong className="title-orange">Sessions:</strong>
-
               {movie.movieStarts.map((movieStart, i) => {
                 const startTime = formatTimeToUTC(movieStart);
                 const endTime = formatTimeToUTC(movie.movieEnds[i]);
