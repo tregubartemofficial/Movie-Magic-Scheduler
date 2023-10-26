@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import { optionsForMovies } from "../calendarAPI";
-import { movies } from "../data";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { useLocation } from "react-router";
+import axios from "axios";
+import { optionsForMovies } from "../api";
+import { movies } from "../data";
 import { formatTimeToUTC } from "../App";
 
 const MoviePage = () => {

@@ -1,19 +1,33 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
+import { AiFillGoogleSquare } from "react-icons/ai";
 import axios from "axios";
 import { setIsLoggedIn, setUser } from "../redux/userSlice";
-import "../styles/Header.css";
 import FilterModal from "../ui/FilterModal";
 import SelectDay from "./SelectDay";
-import useAccessToken from "../hooks/useAccessToken";
+import "../styles/Header.css";
 
 const Header = () => {
-  const [accessToken, setAccessToken] = useAccessToken(null);
+  const [accessToken, setAccessToken] = useState(null);
   const [openFilterModal, setOpenFilterModal] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
+
+  useEffect(() => {
+    const currentTimestamp = new Date().getTime();
+    const accessTokenExpiration = sessionStorage.getItem("expirationTime");
+
+    if (accessTokenExpiration && currentTimestamp >= accessTokenExpiration) {
+      sessionStorage.removeItem("accessToken");
+      sessionStorage.removeItem("expirationTime");
+    }
+    const token = sessionStorage.getItem("accessToken");
+    if (token) {
+      setAccessToken(token);
+    }
+  }, []);
 
   const googleLogin = useGoogleLogin({
     clientId:
@@ -24,7 +38,10 @@ const Header = () => {
           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
         })
         .then((res) => res.data);
-      localStorage.setItem("accessToken", tokenResponse.access_token);
+
+      const expirationTime = new Date().getTime() + tokenResponse.expires_in;
+      sessionStorage.setItem("accessToken", tokenResponse.access_token);
+      localStorage.setItem("expirationTime", expirationTime);
       dispatch(setUser(userInfo));
       dispatch(setIsLoggedIn(true));
       setAccessToken(tokenResponse.access_token);
@@ -71,7 +88,7 @@ const Header = () => {
             </button>
           ) : (
             <button className="button" onClick={googleLogin}>
-              Sign in via Google Calendar
+              Sign in via <AiFillGoogleSquare size="1.5em" />
             </button>
           )}
         </nav>

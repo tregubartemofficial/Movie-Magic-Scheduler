@@ -101,13 +101,6 @@ p {
   transition: all 0.3s ease;
 }
 
-.button svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: var(--main-color);
-}
-
 .button-outline {
   background-color: inherit;
   border: 2px solid var(--main-color);

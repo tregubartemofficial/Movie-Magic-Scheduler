@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDate } from "../redux/calendarSlice";
 import { formatDate } from "../App";
+import { AiFillCalendar, AiOutlineCalendar } from "react-icons/ai";
 
 
 
@@ -38,6 +39,7 @@ const SelectDay = () => {
   return (
     <div className="select-day">
       <button className="button" onClick={() => setShowDropdown(!showDropdown)}>
+        <AiFillCalendar size='1.5em' />
         {formatedDate}
       </button>
       <div className={`menu ${showDropdown ? "active" : ""}`}>
