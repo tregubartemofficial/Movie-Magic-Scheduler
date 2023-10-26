@@ -4,8 +4,8 @@ import UserTimeForm from "../components/UserTimeForm";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanAllUserPreferences, setUserGenre } from "../redux/calendarSlice";
 import { formatDate } from "../App";
-import useAccessToken from "../hooks/useAccessToken";
-import { getTodayEvents } from "../calendarAPI";
+import { getTodayEvents } from "../api";
+import { AiOutlineClose } from "react-icons/ai";
 
 const genres = [
   "Action",
@@ -23,9 +23,13 @@ const genres = [
 ];
 
 const FilterModal = ({ active, setActive }) => {
-  const [accessToken] = useAccessToken(null);
   const dispatch = useDispatch();
   const { date, selectedGenres } = useSelector((state) => state.calendar);
+
+  let accessToken = null;
+  if (active) {
+    accessToken = sessionStorage.getItem("accessToken");
+  }
 
   return (
     <div className={active ? "modal active" : "modal"}>
@@ -40,6 +44,7 @@ const FilterModal = ({ active, setActive }) => {
             onClick={() => setActive(false)}
           >
             Close
+            <AiOutlineClose size="1.5em" />
           </button>
         </div>
         <div className="modal-actions">
@@ -49,6 +54,7 @@ const FilterModal = ({ active, setActive }) => {
           >
             Clear filters
           </button>
+
           {accessToken && (
             <button
               className="button"

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { formatTimeToUTC } from "../App";
-import { optionsForMovies } from "../calendarAPI";
+import { optionsForMovies } from "../api";
 import "../styles/MovieCard.css";
 
 const MovieCard = ({ movie }) => {

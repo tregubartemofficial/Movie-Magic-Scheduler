@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { formatTimeToMin } from "../App";
 
 const MovieListPage = () => {
-  // const state = useSelector((state) => state.user);
   const {
     startTime,
     endTime,
@@ -26,6 +25,12 @@ const MovieListPage = () => {
     })
     .reduce((selected, movie) => {
       const selectedTime = movie.movieStarts.findIndex((movieStartTime, i) => {
+        if (Array.isArray(startTime)) {
+          return (
+            movie.movieEnds[i] <= formatTimeToMin(endTime[i]) &&
+            movieStartTime >= formatTimeToMin(startTime[i])
+          );
+        }
         if (startTime && endTime) {
           return (
             movie.movieEnds[i] <= formatTimeToMin(endTime) &&
