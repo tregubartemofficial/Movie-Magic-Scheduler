@@ -69,14 +69,3 @@ export const getTodayEvents = async (date, dispatch) => {
     console.error(error);
   }
 };
-
-// export const listCalendars = async () => {
-//   try {
-//     const response = await axios.get(`${BASE_URL}/users/me/calendarList`, {
-//       headers: API_HEADERS(),
-//     });
-//     return response.data;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
