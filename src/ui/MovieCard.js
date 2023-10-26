@@ -1,12 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { formatTimeToUTC } from "../App";
+import { formatTimeToMin, formatTimeToUTC } from "../App";
 import { optionsForMovies } from "../api";
 import "../styles/MovieCard.css";
+import { useSelector } from "react-redux";
 
 const MovieCard = ({ movie }) => {
+  const { startTime: userStartTime, endTime: userEndTime } = useSelector(
+    (state) => state.calendar
+  );
   const [posterUrl, setPosterUrl] = useState(null);
+  console.log();
 
   const searchMovie = useCallback(async () => {
     try {
@@ -48,6 +53,16 @@ const MovieCard = ({ movie }) => {
         <div className="wrapper-time-table">
           {movie.movieStarts.map((movieStart, i) => {
             const startTime = formatTimeToUTC(movieStart);
+            const endTime = movie.movieEnds[i];
+
+            if (userStartTime && movieStart < formatTimeToMin(userStartTime)) {
+              return <React.Fragment key={i}></React.Fragment>;
+            }
+
+            if (userEndTime && endTime > formatTimeToMin(userEndTime)) {
+              return <React.Fragment key={i}></React.Fragment>;
+            }
+
             return (
               <div className="time-table" key={i}>
                 <div className="time">
