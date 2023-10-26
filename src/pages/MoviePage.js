@@ -17,7 +17,6 @@ const MoviePage = () => {
         `https://api.themoviedb.org/3/search/movie?query=${movieTitle}&language=en`,
         optionsForMovies
       );
-
       if (response.data.results && response.data.results.length > 0) {
         const movieId = response.data.results[0].id;
         const movieDetailsResponse = await axios.get(
@@ -69,6 +68,10 @@ const MoviePage = () => {
               {movie.genres.map((genre) => genre.name).join(", ")}
             </li>
             <li>
+              <strong>Age limit:</strong>
+              + {movie.ageLimit}
+            </li>
+            <li>
               <strong>Rating:</strong>
               {[...Array(5)].map((_, i) => {
                 const isActive = i < movie.rating;
@@ -80,7 +83,6 @@ const MoviePage = () => {
             <li>
               <strong>Ticket price:</strong> {movie.ticketPrice} $
             </li>
-
             <li>
               <strong className="title-orange">Sessions:</strong>
               {movie.movieStarts.map((movieStart, i) => {

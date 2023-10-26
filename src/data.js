@@ -406,7 +406,7 @@ export const movies = [
     ageLimit: 6,
   },
   {
-    title: "Léon: The Professional",
+    title: "Leon: The Professional",
     description:
       "A hitman takes in a 12-year-old girl after her family is murdered and teaches her the trade.",
     dayOfWeek: 4,
@@ -415,7 +415,7 @@ export const movies = [
     ticketPrice: 7.63,
     movieStarts: [960, 1090, 1220],
     movieEnds: [1090, 1220, 1350],
-    rating: 3,
+    rating: 5,
     genre: "Drama",
     ageLimit: 14,
   },

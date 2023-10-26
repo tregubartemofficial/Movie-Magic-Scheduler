@@ -1,9 +1,8 @@
 # Movie Magic Scheduler
 
-Welcome to the Movie Magic Scheduler repository! This app helps you to choose a movie based on your preferences.
+Welcome to the Movie Magic Scheduler repository! This app helps you to choose a movie based on your time and preferences.
 
 **Official site:** [Movie Magic Scheduler](https://movie-magic-scheduler.vercel.app/)
-
 
 ## Table of Contents
 
@@ -31,7 +30,9 @@ This project is built using the following technologies:
 
 - [React](https://reactjs.org/): A JavaScript library for building user interfaces.
 
-- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
+- [Redux TLK](https://redux-toolkit.js.org/): The official, opinionated, batteries-included toolset for efficient Redux development.
+
+- [Google Calendar API](https://developers.google.com/calendar): A RESTful API that can be used to access Google Calendar events and retrieve information about other calendars that the user owns or is subscribed to.
 
 ---
 

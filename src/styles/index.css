@@ -211,10 +211,6 @@ p {
   .genres-filter {
     justify-content: flex-start;
   }
-
-  .wrapper-time-table {
-    flex-direction: column;
-  }
 }
 
 /* lg */
