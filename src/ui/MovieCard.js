@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
           optionsForMovies
         );
         const posterPath =
-          movieDetailsResponse.data.images.posters[0].file_path;
+          movieDetailsResponse.data.images.backdrops[0].file_path;
         return `https://image.tmdb.org/t/p/original${posterPath}`;
       }
     } catch (error) {
