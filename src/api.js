@@ -44,13 +44,12 @@ export const getTodayEvents = async (date, dispatch) => {
         timeMax: endOfDay.toISOString(),
       },
     });
-    console.log(response.data);
 
     if (response.data.items[0]) {
       const startTimes = [];
       const endTimes = [];
 
-      for (const event of response.items) {
+      for (const event of response.data.items) {
         const startTimestamp = formatDataToTime(
           new Date(event.start.dateTime)
         );
@@ -58,9 +57,9 @@ export const getTodayEvents = async (date, dispatch) => {
         startTimes.push(startTimestamp);
         endTimes.push(endTimestamp);
       }
-
-      dispatch(setUserStartTime(startTimes));
-      dispatch(setUserEndTime(endTimes));
+      // didnt implement logic with multiple time slots
+      // dispatch(setUserStartTime(startTimes));
+      // dispatch(setUserEndTime(endTimes));
     } else {
       dispatch(setUserStartTime(formatDataToTime(today)));
       dispatch(setUserEndTime(formatDataToTime(endOfDay)));

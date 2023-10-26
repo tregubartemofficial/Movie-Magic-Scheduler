@@ -15,17 +15,18 @@ const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  useEffect(() => {
-    const currentTimestamp = new Date().getTime();
+    useEffect(() => {
     const accessTokenExpiration = sessionStorage.getItem("expirationTime");
-
+    const currentTimestamp = new Date().getTime();
+    
     if (accessTokenExpiration && currentTimestamp >= accessTokenExpiration) {
       sessionStorage.removeItem("accessToken");
       sessionStorage.removeItem("expirationTime");
-    }
-    const token = sessionStorage.getItem("accessToken");
-    if (token) {
-      setAccessToken(token);
+    } else {
+      const token = sessionStorage.getItem("accessToken");
+      if (token) {
+        setAccessToken(token);
+      }
     }
   }, []);
 
@@ -39,7 +40,7 @@ const Header = () => {
         })
         .then((res) => res.data);
 
-      const expirationTime = new Date().getTime() + tokenResponse.expires_in;
+      const expirationTime = new Date().getTime() + tokenResponse.expires_in * 1000;
       sessionStorage.setItem("accessToken", tokenResponse.access_token);
       localStorage.setItem("expirationTime", expirationTime);
       dispatch(setUser(userInfo));

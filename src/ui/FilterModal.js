@@ -24,7 +24,9 @@ const genres = [
 
 const FilterModal = ({ active, setActive }) => {
   const dispatch = useDispatch();
-  const { date, selectedGenres } = useSelector((state) => state.calendar);
+  const { date, selectedGenres } = useSelector(
+    (state) => state.calendar
+  );
 
   let accessToken = null;
   if (active) {

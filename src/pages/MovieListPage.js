@@ -6,8 +6,8 @@ import { formatTimeToMin } from "../App";
 
 const MovieListPage = () => {
   const {
-    startTime,
-    endTime,
+    startTime: userStartTime,
+    endTime: userEndTime,
     date,
     selectedGenres,
     preferUnfilledCinema,
@@ -25,23 +25,17 @@ const MovieListPage = () => {
     })
     .reduce((selected, movie) => {
       const selectedTime = movie.movieStarts.findIndex((movieStartTime, i) => {
-        if (Array.isArray(startTime)) {
+        if (userStartTime && userEndTime) {
           return (
-            movie.movieEnds[i] <= formatTimeToMin(endTime[i]) &&
-            movieStartTime >= formatTimeToMin(startTime[i])
+            movie.movieEnds[i] <= formatTimeToMin(userEndTime) &&
+            movieStartTime >= formatTimeToMin(userStartTime)
           );
         }
-        if (startTime && endTime) {
-          return (
-            movie.movieEnds[i] <= formatTimeToMin(endTime) &&
-            movieStartTime >= formatTimeToMin(startTime)
-          );
+        if (userStartTime) {
+          return movieStartTime >= formatTimeToMin(userStartTime);
         }
-        if (startTime) {
-          return movieStartTime >= formatTimeToMin(startTime);
-        }
-        if (endTime) {
-          return movie.movieEnds[i] <= formatTimeToMin(endTime);
+        if (userEndTime) {
+          return movie.movieEnds[i] <= formatTimeToMin(userEndTime);
         }
         return movie;
       });
@@ -63,8 +57,8 @@ const MovieListPage = () => {
         <MovieCard key={movie.title} movie={movie} />
       ))}
       {!filteredMovies[0]?.title && (
-          <h2 className="title-orange">No movies available</h2>
-        )}
+        <h2 className="title-orange">No movies available</h2>
+      )}
     </article>
   );
 };
