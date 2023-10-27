@@ -27,9 +27,6 @@ const API_HEADERS = () => {
   };
 };
 
-
-
-
 export const getTodayEvents = async (date, dispatch) => {
   const today = new Date(date);
   today.setHours(0, 0, 0, 0);
@@ -50,9 +47,7 @@ export const getTodayEvents = async (date, dispatch) => {
       const endTimes = [];
 
       for (const event of response.data.items) {
-        const startTimestamp = formatDataToTime(
-          new Date(event.start.dateTime)
-        );
+        const startTimestamp = formatDataToTime(new Date(event.start.dateTime));
         const endTimestamp = formatDataToTime(new Date(event.end.dateTime));
         startTimes.push(startTimestamp);
         endTimes.push(endTimestamp);

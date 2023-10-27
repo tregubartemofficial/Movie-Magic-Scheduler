@@ -1,11 +1,11 @@
 import React from "react";
-import "../styles/Modal.css";
-import UserTimeForm from "../components/UserTimeForm";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanAllUserPreferences, setUserGenre } from "../redux/calendarSlice";
 import { formatDate } from "../App";
 import { getTodayEvents } from "../api";
 import { AiOutlineClose } from "react-icons/ai";
+import UserTimeForm from "../components/UserTimeForm";
+import "../styles/Modal.css";
 
 const genres = [
   "Action",
@@ -24,9 +24,7 @@ const genres = [
 
 const FilterModal = ({ active, setActive }) => {
   const dispatch = useDispatch();
-  const { date, selectedGenres } = useSelector(
-    (state) => state.calendar
-  );
+  const { date, selectedGenres } = useSelector((state) => state.calendar);
 
   let accessToken = null;
   if (active) {

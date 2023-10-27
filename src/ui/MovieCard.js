@@ -1,17 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { formatTimeToMin, formatTimeToUTC } from "../App";
 import { optionsForMovies } from "../api";
-import "../styles/MovieCard.css";
 import { useSelector } from "react-redux";
+import { formatTimeToMin, formatTimeToUTC } from "../App";
+import "../styles/MovieCard.css";
 
 const MovieCard = ({ movie }) => {
   const { startTime: userStartTime, endTime: userEndTime } = useSelector(
     (state) => state.calendar
   );
   const [posterUrl, setPosterUrl] = useState(null);
-  console.log();
 
   const searchMovie = useCallback(async () => {
     try {
