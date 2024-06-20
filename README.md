@@ -1,8 +1,8 @@
-# Movie Magic Scheduler
+# Movie Scheduler
 
-Welcome to the Movie Magic Scheduler repository! This app helps you to choose a movie based on your time and preferences.
+Welcome to the Movie Scheduler repository! This app helps you to choose a movie based on your time and preferences.
 
-**Official site:** [Movie Magic Scheduler](https://movie-magic-scheduler.vercel.app/)
+**Official site:** [Movie Scheduler](https://movie-magic-scheduler.vercel.app/)
 
 ## Table of Contents
 
